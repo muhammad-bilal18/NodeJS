@@ -1,0 +1,29 @@
+Basic Commands
+npm init: Initializes a new Node.js project and creates a package.json file.
+npm install or npm i: Installs all dependencies listed in the package.json file.
+npm install <package-name> or npm i <package-name>: Installs a specific package and adds it to the dependencies.
+npm install --save-dev <package-name> or npm i -D <package-name>: Installs a specific package and adds it to the devDependencies.
+npm install --global <package-name> or npm i -g <package-name>: Installs a package globally.
+Managing Packages
+npm uninstall <package-name>: Uninstalls a package and removes it from the dependencies.
+npm update <package-name>: Updates a specific package.
+npm update: Updates all packages.
+npm outdated: Checks for outdated packages.
+Running Scripts
+npm start: Runs the script defined in the start property of package.json.
+npm test: Runs the script defined in the test property of package.json.
+npm run <script-name>: Runs a custom script defined in the scripts section of package.json.
+Package Information
+npm list: Lists installed packages.
+npm list --depth=0: Lists installed packages without their dependencies.
+npm info <package-name>: Shows information about a specific package.
+Version Management
+npm version <update_type>: Bumps the package version based on the specified update type (patch, minor, major, prepatch, preminor, premajor, prerelease). This also updates the version in package.json and creates a git commit and tag.
+npm version patch: Increments the patch version (e.g., 1.0.0 to 1.0.1).
+npm version minor: Increments the minor version (e.g., 1.0.0 to 1.1.0).
+npm version major: Increments the major version (e.g., 1.0.0 to 2.0.0).
+npm version <new_version>: Sets a specific version (e.g., npm version 2.0.0).
+Publishing Packages
+npm publish: Publishes the package to the npm registry. The package must have a unique version number each time it is published.
+npm publish --access public: Publishes a scoped package (e.g., @username/package) to the public npm registry.
+npm publish --access restricted: Publishes a scoped package to the private npm registry (default for scoped packages).
