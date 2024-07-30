@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title= title
+  body
+    h1= title
+
+    if data.length
+      ul.customer-list
+        each customer in data
+          li.customer-item
+            h2= customer.name
+            p
+              strong Phone:
+              |  #{customer.phone}
+            p
+              strong Gold Member:
+              |  #{customer.isGold ? 'Yes' : 'No'}
+    else
+      p No customers found.
