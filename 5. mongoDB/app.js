@@ -35,4 +35,28 @@ async function getCourses() {
     console.log(courses);
 }
 
-getCourses();
+
+async function updateCourse(id) {
+    const course = await Course.findById(id);
+    if(!course) return;
+    course.auther = 'MD. Bilal';
+    const result = await course.save();
+    console.log(result);
+}
+
+async function _updateCourse(id) {
+    await Course.updateOne(
+        { _id: id },
+        {   $set : {
+                name: 'Deep Learning'
+            } 
+        }
+    );
+}
+
+async function removeCourse(id) {
+    const result = await Course.deleteOne({ _id: id });
+    console.log(result);
+}
+
+removeCourse('66a38f69972e8bc114dd1668');
