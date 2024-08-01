@@ -1,0 +1,15 @@
+html
+    head
+        title Courses
+    body
+        h1 Courses List
+        table
+            thead
+                tr
+                    th Course Name
+                    th Author Name
+            tbody
+                each course in courses
+                    tr
+                        td= course.name
+                        td= course.author.name
