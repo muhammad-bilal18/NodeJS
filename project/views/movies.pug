@@ -1,0 +1,13 @@
+html
+  head
+    title Movies
+  body
+    h1 Movies List
+    each movie, index in movies
+      div
+        h2= movie.name
+        ul
+          each genre in movie.genres
+            li= genre.name
+        p Numbers in Stock: #{movie.numbersInStock}
+        p Daily Rental Rate: #{movie.dailyRentalRate}
