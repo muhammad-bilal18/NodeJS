@@ -1,0 +1,512 @@
+{
+  message: 'Use is not defined',
+  level: 'warn',
+  timestamp: '2024-08-02T12:39:14.513Z'
+}
+{
+  message: 'No default engine was specified and no extension was provided.',
+  level: 'warn',
+  timestamp: '2024-08-05T14:14:56.002Z'
+}
+{
+  message: 'No default engine was specified and no extension was provided.',
+  level: 'warn',
+  timestamp: '2024-08-05T14:15:19.842Z'
+}
+{
+  message: 'No default engine was specified and no extension was provided.',
+  level: 'warn',
+  timestamp: '2024-08-05T14:15:59.610Z'
+}
+{
+  message: 'No default engine was specified and no extension was provided.',
+  level: 'warn',
+  timestamp: '2024-08-05T14:16:00.539Z'
+}
+{
+  message: 'No default engine was specified and no extension was provided.',
+  level: 'warn',
+  timestamp: '2024-08-05T14:16:30.184Z'
+}
+{
+  message: 'No default engine was specified and no extension was provided.',
+  level: 'warn',
+  timestamp: '2024-08-05T14:16:31.415Z'
+}
+{
+  message: 'No default engine was specified and no extension was provided.',
+  level: 'warn',
+  timestamp: '2024-08-05T14:16:32.518Z'
+}
+{
+  message: 'No default engine was specified and no extension was provided.',
+  level: 'warn',
+  timestamp: '2024-08-05T14:17:03.959Z'
+}
+{
+  message: 'No default engine was specified and no extension was provided.',
+  level: 'warn',
+  timestamp: '2024-08-05T14:17:04.809Z'
+}
+{
+  message: "Cannot read properties of undefined (reading 'petName')",
+  level: 'warn',
+  timestamp: '2024-08-05T14:18:09.626Z'
+}
+{
+  message: "Cannot read properties of undefined (reading 'petName')",
+  level: 'warn',
+  timestamp: '2024-08-05T14:21:55.580Z'
+}
+{
+  message: "Cannot read properties of undefined (reading 'petName')",
+  level: 'warn',
+  timestamp: '2024-08-05T14:24:08.828Z'
+}
+{
+  message: "Cannot read properties of undefined (reading 'petName')",
+  level: 'warn',
+  timestamp: '2024-08-05T14:25:03.474Z'
+}
+{
+  message: "Cannot read properties of undefined (reading 'petName')",
+  level: 'warn',
+  timestamp: '2024-08-05T14:28:24.477Z'
+}
+{
+  message: "Cannot read properties of undefined (reading 'petName')",
+  level: 'warn',
+  timestamp: '2024-08-05T14:28:59.426Z'
+}
+{
+  message: "Cannot read properties of undefined (reading 'petName')",
+  level: 'warn',
+  timestamp: '2024-08-05T14:30:32.105Z'
+}
+{
+  message: "Cannot read properties of undefined (reading 'petName')",
+  level: 'warn',
+  timestamp: '2024-08-05T14:31:00.653Z'
+}
+{
+  message: "Cannot read properties of undefined (reading 'petName')",
+  level: 'warn',
+  timestamp: '2024-08-05T14:33:52.289Z'
+}
+{
+  message: "Cannot read properties of undefined (reading 'petName')",
+  level: 'warn',
+  timestamp: '2024-08-05T14:37:14.369Z'
+}
+{
+  message: "Cannot read properties of undefined (reading 'petName')",
+  level: 'warn',
+  timestamp: '2024-08-05T14:38:28.981Z'
+}
+{
+  message: 'Failed to lookup view "index" in views directory "./views"',
+  level: 'warn',
+  timestamp: '2024-08-05T18:25:15.979Z'
+}
+{
+  message: 'Failed to lookup view "index" in views directory "./views"',
+  level: 'warn',
+  timestamp: '2024-08-05T18:26:11.901Z'
+}
+{
+  message: 'Failed to lookup view "index" in views directory "./views"',
+  level: 'warn',
+  timestamp: '2024-08-06T10:59:32.803Z'
+}
+{
+  message: 'Joi.objectId is not a function',
+  level: 'warn',
+  timestamp: '2024-08-06T13:01:43.148Z'
+}
+{
+  message: 'Joi.objectId is not a function',
+  level: 'warn',
+  timestamp: '2024-08-06T13:01:55.658Z'
+}
+{
+  message: 'Joi.objectId is not a function',
+  level: 'warn',
+  timestamp: '2024-08-06T13:03:42.228Z'
+}
+{
+  message: 'Joi.objectId is not a function',
+  level: 'warn',
+  timestamp: '2024-08-06T13:04:49.315Z'
+}
+{
+  message: 'Joi.objectId is not a function',
+  level: 'warn',
+  timestamp: '2024-08-06T13:12:46.215Z'
+}
+{
+  message: 'Joi.objectId is not a function',
+  level: 'warn',
+  timestamp: '2024-08-06T13:13:22.007Z'
+}
+{
+  message: 'Joi.objectId is not a function',
+  level: 'warn',
+  timestamp: '2024-08-06T13:27:14.431Z'
+}
+{
+  message: 'Joi.objectId is not a function',
+  level: 'warn',
+  timestamp: '2024-08-06T13:29:07.014Z'
+}
+{
+  message: 'Cannot call allow/valid/invalid with undefined',
+  level: 'warn',
+  timestamp: '2024-08-06T13:31:19.695Z'
+}
+{
+  message: 'Cast to ObjectId failed for value "id" (type string) at path "_id" for model "Patient"',
+  level: 'warn',
+  timestamp: '2024-08-06T13:32:02.363Z'
+}
+{
+  message: 'Cast to ObjectId failed for value "id" (type string) at path "_id" for model "Patient"',
+  level: 'warn',
+  timestamp: '2024-08-06T13:32:29.806Z'
+}
+{
+  message: 'Cast to ObjectId failed for value "id" (type string) at path "_id" for model "Patient"',
+  level: 'warn',
+  timestamp: '2024-08-06T13:34:50.327Z'
+}
+{
+  message: 'Cast to ObjectId failed for value "id" (type string) at path "_id" for model "Patient"',
+  level: 'warn',
+  timestamp: '2024-08-06T13:36:05.335Z'
+}
+{
+  message: 'Cast to ObjectId failed for value "id" (type string) at path "_id" for model "Patient"',
+  level: 'warn',
+  timestamp: '2024-08-06T13:36:44.509Z'
+}
+{
+  message: 'Cast to ObjectId failed for value "id" (type string) at path "_id" for model "Patient"',
+  level: 'warn',
+  timestamp: '2024-08-06T13:37:37.611Z'
+}
+{
+  message: 'Cast to ObjectId failed for value "id" (type string) at path "_id" for model "Patient"',
+  level: 'warn',
+  timestamp: '2024-08-06T13:38:34.907Z'
+}
+{
+  message: 'Cannot set headers after they are sent to the client',
+  level: 'warn',
+  timestamp: '2024-08-07T07:57:39.271Z'
+}
+{
+  message: 'Cannot set headers after they are sent to the client',
+  level: 'warn',
+  timestamp: '2024-08-07T07:57:39.330Z'
+}
+{
+  message: 'Cannot set headers after they are sent to the client',
+  level: 'warn',
+  timestamp: '2024-08-07T07:59:24.641Z'
+}
+{
+  message: 'Cannot set headers after they are sent to the client',
+  level: 'warn',
+  timestamp: '2024-08-07T07:59:24.660Z'
+}
+{
+  message: 'Cannot set headers after they are sent to the client',
+  level: 'warn',
+  timestamp: '2024-08-07T08:04:17.915Z'
+}
+{
+  message: 'Cannot set headers after they are sent to the client',
+  level: 'warn',
+  timestamp: '2024-08-07T08:04:17.929Z'
+}
+{
+  message: 'Cannot set headers after they are sent to the client',
+  level: 'warn',
+  timestamp: '2024-08-07T08:04:35.325Z'
+}
+{
+  message: 'Cannot set headers after they are sent to the client',
+  level: 'warn',
+  timestamp: '2024-08-07T08:04:35.338Z'
+}
+{
+  message: 'Cannot set headers after they are sent to the client',
+  level: 'warn',
+  timestamp: '2024-08-07T08:10:21.636Z'
+}
+{
+  message: 'Cannot set headers after they are sent to the client',
+  level: 'warn',
+  timestamp: '2024-08-07T08:10:21.673Z'
+}
+{
+  message: 'Cannot set headers after they are sent to the client',
+  level: 'warn',
+  timestamp: '2024-08-07T08:12:14.504Z'
+}
+{
+  message: 'Cannot set headers after they are sent to the client',
+  level: 'warn',
+  timestamp: '2024-08-07T08:12:21.261Z'
+}
+{
+  message: 'Cannot set headers after they are sent to the client',
+  level: 'warn',
+  timestamp: '2024-08-07T08:12:21.335Z'
+}
+{
+  message: 'Cannot set headers after they are sent to the client',
+  level: 'warn',
+  timestamp: '2024-08-07T08:12:21.349Z'
+}
+{
+  message: 'Cannot set headers after they are sent to the client',
+  level: 'warn',
+  timestamp: '2024-08-07T08:13:39.229Z'
+}
+{
+  message: 'Cannot set headers after they are sent to the client',
+  level: 'warn',
+  timestamp: '2024-08-07T08:14:25.454Z'
+}
+{
+  message: 'Cannot set headers after they are sent to the client',
+  level: 'warn',
+  timestamp: '2024-08-07T08:14:30.070Z'
+}
+{
+  message: 'Cannot set headers after they are sent to the client',
+  level: 'warn',
+  timestamp: '2024-08-07T08:14:30.123Z'
+}
+{
+  message: 'Cannot set headers after they are sent to the client',
+  level: 'warn',
+  timestamp: '2024-08-07T08:14:30.136Z'
+}
+{
+  message: 'Cannot set headers after they are sent to the client',
+  level: 'warn',
+  timestamp: '2024-08-07T08:14:56.495Z'
+}
+{
+  message: 'Cannot set headers after they are sent to the client',
+  level: 'warn',
+  timestamp: '2024-08-07T08:15:48.817Z'
+}
+{
+  message: "Cannot read properties of undefined (reading '0')",
+  level: 'warn',
+  timestamp: '2024-08-08T07:38:22.614Z'
+}
+{ level: 'warn', timestamp: '2024-08-08T07:39:18.583Z' }
+{ level: 'warn', timestamp: '2024-08-08T07:39:25.502Z' }
+{
+  message: undefined,
+  level: 'warn',
+  timestamp: '2024-08-08T07:40:10.147Z'
+}
+{
+  message: "Cannot read properties of undefined (reading '0')",
+  level: 'warn',
+  timestamp: '2024-08-08T07:41:06.224Z'
+}
+{
+  message: "Cannot read properties of undefined (reading '0')",
+  level: 'warn',
+  timestamp: '2024-08-08T07:41:22.646Z'
+}
+{
+  message: "Cannot read properties of undefined (reading '0')",
+  level: 'warn',
+  timestamp: '2024-08-08T07:42:48.984Z'
+}
+{
+  message: "Cannot read properties of undefined (reading '0')",
+  level: 'warn',
+  timestamp: '2024-08-08T07:43:25.767Z'
+}
+{
+  message: "Cannot read properties of undefined (reading '0')",
+  level: 'warn',
+  timestamp: '2024-08-08T07:44:16.229Z'
+}
+{
+  message: "Cannot read properties of undefined (reading '0')",
+  level: 'warn',
+  timestamp: '2024-08-08T07:44:26.849Z'
+}
+{
+  message: "Cannot read properties of undefined (reading '0')",
+  level: 'warn',
+  timestamp: '2024-08-08T07:45:35.525Z'
+}
+{
+  message: 'Appointment validation failed: patient.petName: Path `petName` is required., patient.ownerPhoneNumber: Path `ownerPhoneNumber` is required.',
+  level: 'warn',
+  timestamp: '2024-08-08T07:46:07.226Z'
+}
+{
+  message: 'Appointment validation failed: patient.petName: Path `petName` is required., patient.ownerPhoneNumber: Path `ownerPhoneNumber` is required.',
+  level: 'warn',
+  timestamp: '2024-08-08T07:46:58.519Z'
+}
+{
+  message: 'patient is not defined',
+  level: 'warn',
+  timestamp: '2024-08-08T07:48:38.225Z'
+}
+{
+  message: 'Appointment validation failed: patient.petName: Path `petName` is required., patient.ownerPhoneNumber: Path `ownerPhoneNumber` is required.',
+  level: 'warn',
+  timestamp: '2024-08-08T07:49:04.429Z'
+}
+{
+  message: 'Appointment validation failed: patient.petName: Path `petName` is required., patient.ownerPhoneNumber: Path `ownerPhoneNumber` is required.',
+  level: 'warn',
+  timestamp: '2024-08-08T07:49:36.492Z'
+}
+{
+  message: 'Appointment validation failed: patient.petName: Path `petName` is required., patient.ownerPhoneNumber: Path `ownerPhoneNumber` is required.',
+  level: 'warn',
+  timestamp: '2024-08-08T07:50:06.307Z'
+}
+{
+  message: 'findById is not defined',
+  level: 'warn',
+  timestamp: '2024-08-08T08:11:48.251Z'
+}
+{
+  message: 'ObjectId is not defined',
+  level: 'warn',
+  timestamp: '2024-08-08T08:50:01.976Z'
+}
+{
+  message: 'ObjectId is not defined',
+  level: 'warn',
+  timestamp: '2024-08-08T08:50:37.461Z'
+}
+{
+  message: 'ObjectId is not defined',
+  level: 'warn',
+  timestamp: '2024-08-08T08:51:21.874Z'
+}
+{
+  message: 'ObjectId is not defined',
+  level: 'warn',
+  timestamp: '2024-08-08T08:51:22.958Z'
+}
+{
+  message: 'ObjectId is not defined',
+  level: 'warn',
+  timestamp: '2024-08-08T08:54:25.569Z'
+}
+{
+  message: "Cannot read properties of undefined (reading '_id')",
+  level: 'warn',
+  timestamp: '2024-08-08T08:56:02.206Z'
+}
+{
+  message: '_id is not defined',
+  level: 'warn',
+  timestamp: '2024-08-08T08:57:03.386Z'
+}
+{
+  message: "Cannot read properties of undefined (reading '_id')",
+  level: 'warn',
+  timestamp: '2024-08-08T08:57:19.273Z'
+}
+{
+  message: "Cannot read properties of undefined (reading '_id')",
+  level: 'warn',
+  timestamp: '2024-08-08T08:57:36.692Z'
+}
+{
+  message: "Cannot destructure property 'error' of 'validateAppointment(...)' as it is undefined.",
+  level: 'warn',
+  timestamp: '2024-08-08T09:02:04.808Z'
+}
+{
+  message: "Cannot destructure property 'error' of 'validateAppointment(...)' as it is undefined.",
+  level: 'warn',
+  timestamp: '2024-08-08T09:02:07.717Z'
+}
+{
+  message: "Cannot destructure property 'error' of 'validateAppointment(...)' as it is undefined.",
+  level: 'warn',
+  timestamp: '2024-08-08T09:02:08.384Z'
+}
+{
+  message: "Cannot destructure property 'error' of 'validateAppointment(...)' as it is undefined.",
+  level: 'warn',
+  timestamp: '2024-08-08T09:03:00.324Z'
+}
+{
+  message: "Cannot access 'Patient' before initialization",
+  level: 'warn',
+  timestamp: '2024-08-08T10:13:30.053Z'
+}
+{
+  message: 'Unknown date format YYYY-MM-DD HH:mm',
+  level: 'warn',
+  timestamp: '2024-08-08T10:25:06.600Z'
+}
+{
+  message: 'Unknown date format YYYY-MM-DD HH:mm',
+  level: 'warn',
+  timestamp: '2024-08-08T10:26:05.759Z'
+}
+{
+  message: 'Cast to date failed for value "Invalid Date" (type Date) at path "appointmentStartTime" for model "Appointment"',
+  level: 'warn',
+  timestamp: '2024-08-08T11:11:00.183Z'
+}
+{
+  message: 'Cast to ObjectId failed for value "patientstats" (type string) at path "_id" for model "Appointment"',
+  level: 'warn',
+  timestamp: '2024-08-08T11:47:17.829Z'
+}
+{
+  message: "Cannot access 'Patient' before initialization",
+  level: 'warn',
+  timestamp: '2024-08-08T11:52:06.692Z'
+}
+{
+  message: "Cannot access 'Patient' before initialization",
+  level: 'warn',
+  timestamp: '2024-08-08T11:52:13.893Z'
+}
+{
+  message: 'mongoose is not defined',
+  level: 'warn',
+  timestamp: '2024-08-08T12:09:56.218Z'
+}
+{
+  message: "Class constructor ObjectId cannot be invoked without 'new'",
+  level: 'warn',
+  timestamp: '2024-08-08T12:45:43.582Z'
+}
+{
+  message: 'patientId is not defined',
+  level: 'warn',
+  timestamp: '2024-08-08T12:59:37.913Z'
+}
+{
+  message: 'Aggregate has empty pipeline',
+  level: 'warn',
+  timestamp: '2024-08-08T13:05:53.599Z'
+}
+{
+  message: 'Cannot set headers after they are sent to the client',
+  level: 'warn',
+  timestamp: '2024-08-12T08:41:58.825Z'
+}
