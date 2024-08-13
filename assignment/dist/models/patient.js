@@ -62,7 +62,7 @@ function validatePatient(patient) {
     const schema = joi_1.default.object({
         petName: joi_1.default.string().min(3).required(),
         petType: joi_1.default.string().valid('Cat', 'Dog', 'Bird').required(),
-        ownerName: joi_1.default.string().min(4).required(),
+        ownerName: joi_1.default.string().min(3).required(),
         ownerAddress: joi_1.default.string().required(),
         ownerPhone: joi_1.default.string().length(11).required()
     });

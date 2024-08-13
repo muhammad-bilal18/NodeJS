@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const patient_1 = require("../models/patient");
+const mongoose_1 = __importDefault(require("mongoose"));
 const router = express_1.default.Router();
 router.get('/', async (_req, res) => {
     const patients = await patient_1.Patient.find().sort('name');
@@ -42,7 +43,10 @@ router.put('/:id', async (req, res) => {
     return res.status(200).send({ 'msg': 'Patient updated successfully', 'updatedPatient': updatedPatient });
 });
 router.delete('/:id', async (req, res) => {
-    const patient = await patient_1.Patient.findByIdAndDelete({ _id: req.params.id });
+    const id = req.params.id;
+    if (!mongoose_1.default.Types.ObjectId.isValid(id))
+        return res.status(400).send({ msg: 'Invalid ID' });
+    const patient = await patient_1.Patient.findByIdAndDelete({ _id: id });
     if (!patient)
         return res.status(404).send({ 'msg': 'Patient not found' });
     return res.status(200).send({ 'msg': `${patient.petName} deleted successfully`, 'deletedPatient': patient });

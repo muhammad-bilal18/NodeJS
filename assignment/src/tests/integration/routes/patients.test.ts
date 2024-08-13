@@ -1,8 +1,8 @@
 import request from 'supertest';
 import { Express } from 'express';
-import { Patient } from '../../models/patient';
-import createServer from '../../start/createServer';
-import connectToDatabase from '../../start/db';
+import { Patient } from '../../../models/patient';
+import createServer from '../../../start/createServer';
+import connectToDatabase from '../../../start/db';
 import mongoose from 'mongoose';
 
 describe('api/patients', () => {
