@@ -1,5 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express';
 import { Patient, validatePatient } from '../models/patient';
+import mongoose from 'mongoose';
 
 const router = express.Router();
 
@@ -46,7 +47,9 @@ router.put('/:id', async (req: Request, res: Response) => {
 });
 
 router.delete('/:id', async (req: Request, res: Response) => {
-    const patient = await Patient.findByIdAndDelete({ _id: req.params.id });
+    const id = req.params.id;
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(400).send({ msg: 'Invalid ID' });
+    const patient = await Patient.findByIdAndDelete({ _id: id });
     if (!patient) return res.status(404).send({ 'msg': 'Patient not found' });
     return res.status(200).send({ 'msg': `${patient.petName} deleted successfully`, 'deletedPatient': patient });
 });

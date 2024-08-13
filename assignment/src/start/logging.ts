@@ -1,4 +1,3 @@
-import winston from 'winston';
 import { logger } from '../middlewares/exception';
 import 'express-async-errors';
 

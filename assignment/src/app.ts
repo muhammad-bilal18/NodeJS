@@ -1,26 +1,16 @@
-import express from 'express';
 import { logger } from './middlewares/exception';
-import cors from 'cors';
-
-const app = express();
-app.use(cors());
-app.use(express.json());
-
-import logging from './start/logging';
-logging();
-
-// import config from './start/config';
 import connectToDb from './start/db';
-import setupRoutes from './start/routes';
+import logging from './start/logging';
+import createServer from './start/createServer';
 
-// config()
+logging();
+console.log('app.ts')
 connectToDb();
-setupRoutes(app);
+
+const app = createServer();
 
 const port = process.env.PORT || 3000;
 
-const server = app.listen(port, () => {
-    logger.warn(`Server listening on port ${port}`);
+app.listen(port, () => {
+    logger.info(`Server listening on port ${port}`);
 });
-
-module.exports = server;

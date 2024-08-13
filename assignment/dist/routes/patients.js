@@ -7,13 +7,8 @@ const express_1 = __importDefault(require("express"));
 const patient_1 = require("../models/patient");
 const router = express_1.default.Router();
 router.get('/', async (_req, res) => {
-    try {
-        const patients = await patient_1.Patient.find().sort('name');
-        res.status(200).json(patients);
-    }
-    catch (error) {
-        res.status(500).send('Server Error');
-    }
+    const patients = await patient_1.Patient.find().sort('name');
+    res.status(200).json(patients);
 });
 router.post('/', async (req, res) => {
     const error = (0, patient_1.validatePatient)(req.body);

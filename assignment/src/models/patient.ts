@@ -42,7 +42,7 @@ function validatePatient(patient: Partial<IPatient>) {
     const schema = Joi.object({
         petName: Joi.string().min(3).required(),
         petType: Joi.string().valid('Cat', 'Dog', 'Bird').required(),
-        ownerName: Joi.string().min(4).required(),
+        ownerName: Joi.string().min(3).required(),
         ownerAddress: Joi.string().required(),
         ownerPhone: Joi.string().length(11).required()
     });
