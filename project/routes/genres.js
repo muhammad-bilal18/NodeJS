@@ -6,10 +6,7 @@ const admin = require('../middlewares/admin')
 
 router.get('/', async (req, res) => {
     const genres = await Genre.find().sort('name');
-    res.render('genres', {
-        title: 'Vidly - Genres',
-        message: genres
-    });
+    res.status(200).send(genres);
 });
 
 router.post('/', [auth, admin], async (req, res) => {

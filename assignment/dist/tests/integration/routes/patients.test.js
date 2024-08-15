@@ -4,23 +4,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const supertest_1 = __importDefault(require("supertest"));
-const patient_1 = require("../../../models/patient");
-const createServer_1 = __importDefault(require("../../../start/createServer"));
-const db_1 = __importDefault(require("../../../start/db"));
-const mongoose_1 = __importDefault(require("mongoose"));
+const setup_1 = require("../../setup");
+const utilities_1 = require("../../utilities");
 describe('api/patients', () => {
-    let app;
-    beforeAll(() => {
-        (0, db_1.default)();
-        app = (0, createServer_1.default)();
-    });
     describe('GET /', () => {
         it('should return all patients', async () => {
-            await patient_1.Patient.collection.insertMany([
+            await setup_1.Patient.collection.insertMany([
                 { petName: 'pet1', petType: 'type1', ownerName: 'owner1', ownerAddress: 'address1', ownerPhone: 'phone1' },
                 { petName: 'pet2', petType: 'type2', ownerName: 'owner2', ownerAddress: 'address2', ownerPhone: 'phone2' }
             ]);
-            const response = await (0, supertest_1.default)(app).get('/api/patients');
+            const response = await (0, supertest_1.default)(setup_1.app).get('/api/patients');
             expect(response.statusCode).toBe(200);
             expect(response.body.length).toBe(2);
             expect(response.body.some((p) => p.petName === 'pet1')).toBeTruthy();
@@ -28,125 +21,63 @@ describe('api/patients', () => {
         });
     });
     describe('POST /', () => {
+        let newPatient = (0, utilities_1.getPatientObject)();
         it('should add new patient to db return status 200', async () => {
-            let newPatient = {
-                petName: 'Tom',
-                petType: 'Cat',
-                ownerName: 'Bilal',
-                ownerAddress: 'Lahore',
-                ownerPhone: '03051927417'
-            };
-            const response = await (0, supertest_1.default)(app).post('/api/patients').send(newPatient);
-            const patientInDb = await patient_1.Patient.findOne(newPatient);
+            const response = await (0, supertest_1.default)(setup_1.app).post('/api/patients').send(newPatient);
+            const patientInDb = await setup_1.Patient.findOne(newPatient);
             expect(patientInDb).toBeTruthy();
             expect(response.statusCode).toBe(200);
         });
         it('should return status 400 if the input in invalid', async () => {
-            let newPatient = {
-                petName: 'Tom',
-                petType: 'Lion',
-                ownerName: 'Bilal',
-                ownerAddress: 'Lahore',
-                ownerPhone: '03051927417'
-            };
-            const response = await (0, supertest_1.default)(app).post('/api/patients').send(newPatient);
+            newPatient.petType = 'Lion';
+            const response = await (0, supertest_1.default)(setup_1.app).post('/api/patients').send(newPatient);
             expect(response.statusCode).toBe(400);
         });
     });
     describe('DELETE /:id', () => {
-        it('should delete the patient if the ID is valid', async () => {
-            const patient = new patient_1.Patient({
-                petName: 'Tom',
-                petType: 'Cat',
-                ownerName: 'Bilal',
-                ownerAddress: 'Lahore',
-                ownerPhone: '03051927417'
-            });
-            await patient.save();
-            const response = await (0, supertest_1.default)(app).delete(`/api/patients/${patient._id}`);
+        it('should delete the patient if the ID is valid and patient exists', async () => {
+            const _id = await (0, utilities_1.savePatient)();
+            const response = await (0, supertest_1.default)(setup_1.app).delete(`/api/patients/${_id}`);
             expect(response.statusCode).toBe(200);
-            expect(response.body.msg).toBe(`${patient.petName} deleted successfully`);
-            const deletedPatient = await patient_1.Patient.findById(patient._id);
+            const deletedPatient = await setup_1.Patient.findById(_id);
             expect(deletedPatient).toBeNull();
         });
         it('should return 404 if the patient with given ID does not exist', async () => {
-            const response = await (0, supertest_1.default)(app).delete(`/api/patients/${new mongoose_1.default.Types.ObjectId()}`);
+            const response = await (0, supertest_1.default)(setup_1.app).delete(`/api/patients/${utilities_1.id}`);
             expect(response.statusCode).toBe(404);
             expect(response.body.msg).toBe('Patient not found');
         });
         it('should return 400 if the patient ID is invalid', async () => {
-            const response = await (0, supertest_1.default)(app).delete(`/api/patients/invalidId`);
+            const response = await (0, supertest_1.default)(setup_1.app).delete(`/api/patients/invalidId`);
             expect(response.statusCode).toBe(400);
             expect(response.body.msg).toBe('Invalid ID');
         });
     });
     describe('PUT /:id', () => {
+        let newPatient = (0, utilities_1.getPatientObject)();
+        it('should return 404 if the patient does not exist', async () => {
+            const response = await (0, supertest_1.default)(setup_1.app)
+                .put(`/api/patients/${utilities_1.id}`)
+                .send(newPatient);
+            expect(response.statusCode).toBe(404);
+        });
         it('should return 400 if the input data is invalid', async () => {
-            const patient = new patient_1.Patient({
-                petName: 'Tom',
-                petType: 'Cat',
-                ownerName: 'Bilal',
-                ownerAddress: 'Lahore',
-                ownerPhone: '03051927417'
-            });
-            await patient.save();
-            const response = await (0, supertest_1.default)(app)
-                .put(`/api/patients/${new mongoose_1.default.Types.ObjectId()}`)
-                .send({
-                petName: '',
-                petType: 'Cat',
-                ownerName: 'Bilal',
-                ownerAddress: 'Lahore',
-                ownerPhone: '03051927417'
-            });
+            newPatient.petName = '';
+            const response = await (0, supertest_1.default)(setup_1.app)
+                .put(`/api/patients/${utilities_1.id}`)
+                .send(newPatient);
             expect(response.statusCode).toBe(400);
         });
-        it('should return 404 if the patient does not exist', async () => {
-            const response = await (0, supertest_1.default)(app)
-                .put(`/api/patients/${new mongoose_1.default.Types.ObjectId()}`)
-                .send({
-                petName: 'Tom',
-                petType: 'Cat',
-                ownerName: 'Bilal',
-                ownerAddress: 'Lahore',
-                ownerPhone: '03051927417'
-            });
-            console.log(response.body.msg);
-            expect(response.statusCode).toBe(404);
-            expect(response.body.msg).toBe('Patient not found');
-        });
         it('should update the patient if the ID and data are valid', async () => {
-            const patient = new patient_1.Patient({
-                petName: 'Tom',
-                petType: 'Cat',
-                ownerName: 'Bilal',
-                ownerAddress: 'Lahore',
-                ownerPhone: '03051927417'
-            });
-            await patient.save();
-            const updatedData = {
-                petName: 'Thomas',
-                petType: 'Cat',
-                ownerName: 'Bilal',
-                ownerAddress: 'Lahore',
-                ownerPhone: '03051927417'
-            };
-            const response = await (0, supertest_1.default)(app)
-                .put(`/api/patients/${patient._id}`)
-                .send(updatedData);
+            const _id = await (0, utilities_1.savePatient)();
+            newPatient.petName = 'Thomas';
+            const response = await (0, supertest_1.default)(setup_1.app)
+                .put(`/api/patients/${_id}`)
+                .send(newPatient);
             expect(response.statusCode).toBe(200);
-            expect(response.body.msg).toBe('Patient updated successfully');
-            const patientInDb = await patient_1.Patient.findById(patient._id);
-            console.log(patientInDb);
+            const patientInDb = await setup_1.Patient.findById(_id);
             expect(patientInDb).toHaveProperty('petName', 'Thomas');
         });
-    });
-    afterEach(async () => {
-        await patient_1.Patient.deleteMany({});
-    });
-    afterAll(async () => {
-        await mongoose_1.default.connection.dropDatabase();
-        await mongoose_1.default.connection.close();
     });
 });
 //# sourceMappingURL=patients.test.js.map

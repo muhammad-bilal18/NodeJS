@@ -38,7 +38,7 @@ const patientSchema = new Schema<IPatient>({
 
 const Patient = mongoose.model<IPatient>('Patient', patientSchema);
 
-function validatePatient(patient: Partial<IPatient>) {
+function validatePatient(patient: any) {
     const schema = Joi.object({
         petName: Joi.string().min(3).required(),
         petType: Joi.string().valid('Cat', 'Dog', 'Bird').required(),
@@ -50,4 +50,4 @@ function validatePatient(patient: Partial<IPatient>) {
     return error;
 }
 
-export { Patient, validatePatient };
+export { IPatient, Patient, validatePatient };

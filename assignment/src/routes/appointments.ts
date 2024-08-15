@@ -1,8 +1,17 @@
 import express, { Request, Response } from 'express';
 import { Appointment, validateAppointment } from '../models/appointment';
 import { Patient } from '../models/patient';
+import mongoose from 'mongoose';
 
 const router = express.Router();
+
+const messages = {
+    added: 'Appointment added successfully',
+    updated: 'Appointment updated successfully',
+    deleted: 'Appointment deleted successfully',
+    notFound: 'Patient not found',
+    noRecord: 'Record not found'
+}
 
 router.get('/', async (_req: Request, res: Response) => {
     const appointments = await Appointment
@@ -12,13 +21,21 @@ router.get('/', async (_req: Request, res: Response) => {
 });
 
 router.get('/patient/:id', async (req: Request, res: Response) => {
+    const id = req.params.id;
+    const patient = await Patient.findById(id);
+    if(!patient) return res.status(404).send(messages.notFound);
+
     const appointments = await Appointment
-        .find({ 'patient._id': req.params.id })
+        .find({ 'patient._id': id })
         .sort('appointmentStartTime');
-    res.status(200).send(appointments);
+    return res.status(200).send(appointments);
 });
 
 router.get('/patient/:id/unpaid-fees', async (req: Request, res: Response) => {
+    const id = req.params.id;
+    const patient = await Patient.findById(id);
+    if(!patient) return res.status(404).send(messages.notFound);
+
     const unpaidAppointments = await Appointment.find({
         "patient._id": req.params.id,
         feeStatus: "Unpaid"
@@ -26,7 +43,7 @@ router.get('/patient/:id/unpaid-fees', async (req: Request, res: Response) => {
 
     const unpaidAmount = unpaidAppointments.reduce((sum, curr) => sum + curr.feeAmount, 0);
 
-    res.status(200).send({
+    return res.status(200).send({
         unpaidAmount
     });
 });
@@ -35,7 +52,8 @@ router.get('/:feeStatus', async (req: Request, res: Response) => {
     const appointments = await Appointment
         .find({ feeStatus: req.params.feeStatus })
         .sort('appointmentStartTime');
-    res.status(200).send(appointments);
+    if (appointments.length === 0) return res.status(404).send(messages.noRecord);
+    return res.status(200).send(appointments);
 });
 
 router.get('/day/:date', async (req: Request, res: Response) => {
@@ -50,7 +68,9 @@ router.get('/day/:date', async (req: Request, res: Response) => {
         }
     }).sort('appointmentStartTime');
 
-    res.status(200).send(appointments);
+    if(appointments.length === 0) return res.status(404).send(messages.noRecord);
+
+    return res.status(200).send(appointments);
 });
 
 router.get('/records/patients', async (_req: Request, res: Response) => {
@@ -68,7 +88,7 @@ router.get('/records/patients', async (_req: Request, res: Response) => {
     ]);
 
     if (results.length === 0) {
-        return res.status(404).send({ msg: 'No appointments found' });
+        return res.status(404).send({ msg: messages.noRecord });
     }
 
     const mostPopularPet = results[0];
@@ -86,7 +106,7 @@ router.post('/', async (req: Request, res: Response) => {
     if (error) return res.status(400).send({ msg: error.details[0].message });
 
     const patient = await Patient.findById(req.body.patientId);
-    if (!patient) return res.status(404).send({ msg: 'Patient not found' });
+    if (!patient) return res.status(404).send({ msg: messages.notFound });
 
     const appointment = new Appointment({
         patient: {
@@ -102,14 +122,16 @@ router.post('/', async (req: Request, res: Response) => {
     });
 
     await appointment.save();
-    return res.status(200).send({ msg: `Appointment added successfully`, newAppointment: appointment });
+    return res.status(200).send({ msg: messages.added, newAppointment: appointment });
 });
 
 router.delete('/:id', async (req: Request, res: Response) => {
+    const id = req.params.id;
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(400).send({ msg: 'Invalid ID' });
     const appointment = await Appointment.findByIdAndDelete(req.params.id);
     if (!appointment) return res.status(404).send({ msg: `Record not found` });
 
-    return res.status(200).send({ msg: `Appointment deleted successfully`, deletedAppointment: appointment });
+    return res.status(200).send({ msg: messages.deleted, deletedAppointment: appointment });
 });
 
 router.put('/:id', async (req: Request, res: Response) => {
@@ -130,9 +152,9 @@ router.put('/:id', async (req: Request, res: Response) => {
         { new: true }
     );
 
-    if (!updatedAppointment) return res.status(404).send({ msg: 'Record not found' });
+    if (!updatedAppointment) return res.status(404).send({ msg: messages.noRecord });
 
-    return res.status(200).send({ msg: 'Appointment updated successfully', updatedAppointment });
+    return res.status(200).send({ msg: messages.updated, updatedAppointment });
 });
 
 router.get('/reports/month', async (_req: Request, res: Response) => {

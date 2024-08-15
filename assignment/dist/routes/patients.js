@@ -7,6 +7,12 @@ const express_1 = __importDefault(require("express"));
 const patient_1 = require("../models/patient");
 const mongoose_1 = __importDefault(require("mongoose"));
 const router = express_1.default.Router();
+const messages = {
+    added: 'Patient added successfully',
+    updated: 'Patient updated successfully',
+    deleted: 'Patient deleted successfully',
+    notFound: 'Patient not found'
+};
 router.get('/', async (_req, res) => {
     const patients = await patient_1.Patient.find().sort('name');
     res.status(200).json(patients);
@@ -23,7 +29,7 @@ router.post('/', async (req, res) => {
         ownerPhone: req.body.ownerPhone
     });
     await patient.save();
-    return res.status(200).send({ 'msg': `${patient.petName} added successfully`, 'newPatient': patient });
+    return res.status(200).send({ 'msg': messages.added, 'newPatient': patient });
 });
 router.put('/:id', async (req, res) => {
     const error = (0, patient_1.validatePatient)(req.body);
@@ -39,8 +45,8 @@ router.put('/:id', async (req, res) => {
         }
     }, { new: true });
     if (!updatedPatient)
-        return res.status(404).send({ 'msg': 'Patient not found' });
-    return res.status(200).send({ 'msg': 'Patient updated successfully', 'updatedPatient': updatedPatient });
+        return res.status(404).send({ 'msg': messages.notFound });
+    return res.status(200).send({ 'msg': messages.updated, 'updatedPatient': updatedPatient });
 });
 router.delete('/:id', async (req, res) => {
     const id = req.params.id;
@@ -48,8 +54,8 @@ router.delete('/:id', async (req, res) => {
         return res.status(400).send({ msg: 'Invalid ID' });
     const patient = await patient_1.Patient.findByIdAndDelete({ _id: id });
     if (!patient)
-        return res.status(404).send({ 'msg': 'Patient not found' });
-    return res.status(200).send({ 'msg': `${patient.petName} deleted successfully`, 'deletedPatient': patient });
+        return res.status(404).send({ 'msg': messages.notFound });
+    return res.status(200).send({ 'msg': messages.deleted, 'deletedPatient': patient });
 });
 exports.default = router;
 //# sourceMappingURL=patients.js.map

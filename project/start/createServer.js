@@ -1,3 +1,4 @@
+const express = require('express');
 const home = require('../routes/home');
 const genres = require('../routes/genres');
 const customers = require('../routes/customers');
@@ -6,10 +7,15 @@ const authors = require('../routes/authors');
 const movies = require('../routes/movies');
 const user = require('../routes/user');
 const auth = require('../routes/auth');
+const cors = require('cors');
 
 const { exception } = require('../middlewares/exception');
 
-module.exports = function (app) {
+module.exports = function () {
+    const app = express();
+    app.use(cors());
+    app.use(express.json());
+    
     app.use('/', home);
     app.use('/api/genres', genres);
     app.use('/api/customers', customers);
@@ -20,4 +26,5 @@ module.exports = function (app) {
     app.use('/api/auth', auth);
 
     app.use(exception);
+    return app;
 }
