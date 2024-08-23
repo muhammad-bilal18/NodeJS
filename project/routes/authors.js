@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { Author, validateAuthor } = require('../models/author');
+const { Author } = require('../models/author');
+const {validateAuthor} = require('../validation/author');
 
 router.post('/', async (req, res) => {
     const error = validateAuthor(req.body);

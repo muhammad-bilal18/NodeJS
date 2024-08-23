@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { Course, validateCourse, EmbeddedCourse, validate } = require('../models/course');
+const { Course, EmbeddedCourse } = require('../models/course');
 const { Author } = require('../models/author');
+const { validate, validateCourse } = require('../validation/course');
 
 router.get('/', async (req, res) => {
     const courses = await Course

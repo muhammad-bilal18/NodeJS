@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { Customer, validateCustomer } = require('../models/customer')
+const { Customer } = require('../models/customer')
+const { validateCustomer } = require('../validation/customer');
 
 router.get('/', async (req, res) => {
     const customers = await Customer.find().sort('name');

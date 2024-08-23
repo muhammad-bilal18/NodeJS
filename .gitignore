@@ -2,7 +2,8 @@
 3. express/node_modules/
 3. express/project/node_modules
 5. mongoDB/node_modules
-6. Unit Testing/node_modules
+6. unitTesting/node_modules
 project/node_modules
+assignment/dist
 server/node_modules
 assignment/node_modules
